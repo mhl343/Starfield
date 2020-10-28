@@ -39,6 +39,19 @@ void draw() {
   }
 }
 
+void mousePressed()
+  {
+  for (int i=0; i<parts.length; i++) {
+    parts[i].setX(250);
+    parts[i].setY(400);
+  }
+  for (int i=0; i<part.length; i++) {
+    part[i].setX(930);
+    part[i].setY(400);
+  }
+  
+  }
+
 class HarryPotter {
   double myX, myY, mySpeed, myAngle;
   int myColor;
@@ -49,7 +62,13 @@ class HarryPotter {
     mySpeed=Math.random()*10;
     myColor=color((int)(Math.random()*155+100), 0, 0);
   }
-  void move() {
+  public void setX (int x){
+    myX=x;
+}
+ public void setY (int y){
+    myY=y;
+}
+ void move() {
     myX=myX+Math.cos(myAngle)*mySpeed;
     myY=myY+Math.sin(myAngle)*mySpeed;
   }
@@ -59,17 +78,13 @@ class HarryPotter {
   }
 }
 class OddBallHarryPotter extends HarryPotter {
-  double myX, myY, mySpeed, myAngle;
   OddBallHarryPotter() {
     myX=250;
     myY=400;
     myAngle=Math.random()*2*PI;
     mySpeed=Math.random()*10;
   }
-  void move() {
-    myX=myX+Math.cos(myAngle)*mySpeed;
-    myY=myY+Math.sin(myAngle)*mySpeed;
-  }
+ 
   void show() {
     textSize(32);
     fill(myColor);
@@ -89,6 +104,12 @@ class Voldemort {
     mySpeed=Math.random()*10;
     myColor=color(0, (int)(Math.random()*155+100), 0);
   }
+   public void setX (int x){
+    myX=x;
+}
+ public void setY (int y){
+    myY=y;
+}
   void move() {
     myX=myX+Math.cos(myAngle)*mySpeed;
     myY=myY+Math.sin(myAngle)*mySpeed;
@@ -99,16 +120,11 @@ class Voldemort {
   }
 }
 class OddBallVoldemort extends Voldemort {
-  double myX, myY, mySpeed, myAngle;
   OddBallVoldemort() {
     myX=930;
     myY=400;
     myAngle=Math.random()*2*PI;
     mySpeed=Math.random()*10;
-  }
-  void move() {
-    myX=myX+Math.cos(myAngle)*mySpeed;
-    myY=myY+Math.sin(myAngle)*mySpeed;
   }
   void show() {
     textSize(32);
